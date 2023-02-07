@@ -7,8 +7,8 @@
     "ws": "^8.11.0"
   },
   "scripts" : {
-    "start:motion" : "cd motion && node index",
-    "start:server" : "npx live-server --port=4000 ./public",
-    "start:remote" : "ngrok http 4000"
+    "motion" : "cd motion && node index",
+    "webapp" : "npx live-server --port=4000 ./public",
+    "remote" : "ngrok http 4000"
   }
 }

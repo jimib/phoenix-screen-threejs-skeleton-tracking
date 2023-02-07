@@ -54,9 +54,14 @@ const COLORS = [
     0x0000ff,0xff00ff
 ]
 
+// SCALES DOWN ALL JOINTS POSITIONS
 const SCALE_JOINTS = new THREE.Vector3(.1,.1,.1);
-const ORIGIN_BODY = new THREE.Vector3(0,150,-1000);
+// OFFSETS THE ROOT POSITION OF THE SKELETON
+const ORIGIN_BODY = new THREE.Vector3(0,20,0);
+// SCALES DOWN THE ROOT POSITION OF THE SKELETON
+// NOTE: this example limits the motion in the y and z axis, limits some up down and back/forth movement 
 const SCALE_BODY = new THREE.Vector3(.1,.5,.1);
+
 
 const DEBUG_JOINTS = true;
 const DEBUG_STAGE = true;
@@ -194,6 +199,24 @@ const createSkeleton = () => {
     return skeleton;
 }
 
+// a utility method that will take a position and offset and scale it
+const applyTransform = ( target, position, {origin,scale} = {} ) => {
+    if( target ){
+        target.copy( position );
+        
+        if( scale ){
+            target.multiply( scale );
+        }
+
+        if( origin ){
+            target.sub( origin );
+        }
+    }
+
+    return target;
+}
+
+// a convenience method that wraps applyTransform, it checks that the object exists before setting the position
 const applyPosition = ( target, position, {origin,scale} = {} ) => {
     //apply the transform to the target position
     if( target ){
@@ -212,20 +235,6 @@ const applyDirection = ( target, position, {origin,scale} = {} ) => {
     }
 }
 
-const applyTransform = ( target, position, {origin,scale} = {} ) => {
-    if( target ){
-        target.copy( position );
-    
-        if( origin ){
-            target.sub( origin );
-        }
-        if( scale ){
-            target.multiply( scale );
-        }
-    }
-
-    return target;
-}
 
 var skeletons = {};
 
