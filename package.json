@@ -1,0 +1,14 @@
+{
+  "name": "threejs-skeleton-tracking",
+  "version": "1.0.0",
+  "license": "MIT",
+  "dependencies": {
+    "live-server": "1.2.1",
+    "ws": "^8.11.0"
+  },
+  "scripts" : {
+    "start:motion" : "cd motion && node index",
+    "start:server" : "npx live-server --port=4000 ./public",
+    "start:remote" : "ngrok http 4000"
+  }
+}
