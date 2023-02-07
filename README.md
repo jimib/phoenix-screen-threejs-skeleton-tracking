@@ -62,7 +62,7 @@ Once installed run the following command to expose the local webapp to external 
 npm run remote
 ```
 
-**NOTE:** Run this is addition to "npm run webapp"
+**NOTE:** Run this in addition to "npm run webapp"
 
 This will output a temporary live url that can access the local webapp. Using the Phoenix Screen triggers you can launch an instance of the "WebApp" template and pass the live url.
 
@@ -106,7 +106,7 @@ There are a number of methods that have been provided to help manage the real wo
 
 ### A root container
 
-A root contained that can be scaled and respositioned has been provided, instead of adding children directly to the scene.
+A root container that can be scaled and respositioned has been provided, instead of adding children directly to the scene.
 
 ### Basic transforms
 
